@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Complete mock test solutions (Q1-Q9) with Express + React 18 + MongoDB Native Driver + Universal Exam Template",
   "main": "verify_all.js",
+  "bin": {
+    "hw": "./bin/cli.js",
+    "ost": "./bin/cli.js"
+  },
   "files": [
+    "bin",
     "Q1_Book_Ecommerce_Roll_24-30",
     "Q2_Doctor_Appointment_Roll_31-38",
     "Q3_Expense_Tracker_Roll_39-45",
