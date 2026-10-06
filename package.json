@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "start": "node verify_all.js",
+    "all": "node bin/cli.js all",
     "verify": "node verify_all.js",
     "test": "node verify_all.js",
     "template": "node TEMPLATE_EXAM_STARTER/backend/server.js",

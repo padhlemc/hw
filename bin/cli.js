@@ -1,8 +1,45 @@
 #!/usr/bin/env node
 const path = require('path');
 
+const cp = require('child_process');
+
 const rawArg = (process.argv[2] || '').toLowerCase().trim();
 const target = rawArg.startsWith('q') || isNaN(Number(rawArg)) ? rawArg : 'q' + rawArg;
+
+if (target === 'all') {
+  console.log('\n======================================================');
+  console.log('   🚀 Launching All 10 Exam Solutions Simultaneously');
+  console.log('======================================================\n');
+  const children = [];
+  const entries = [
+    { name: 'Universal Starter', port: 5000, folder: 'TEMPLATE_EXAM_STARTER' },
+    { name: 'Q1: Book E-Commerce', port: 5001, folder: 'Q1_Book_Ecommerce_Roll_24-30' },
+    { name: 'Q2: Doctor Appointments', port: 5002, folder: 'Q2_Doctor_Appointment_Roll_31-38' },
+    { name: 'Q3: Expense Tracker', port: 5003, folder: 'Q3_Expense_Tracker_Roll_39-45' },
+    { name: 'Q4: Daily Task Manager', port: 5004, folder: 'Q4_Daily_Task_Manager_Roll_46-51_70' },
+    { name: 'Q5: Discussion Forum', port: 5005, folder: 'Q5_Discussion_Forum_Roll_52-59' },
+    { name: 'Q6: Student Gradebook', port: 5006, folder: 'Q6_Teacher_Student_Dashboard_Roll_61-67' },
+    { name: 'Q7: Product & User Mgmt', port: 5007, folder: 'Q7_Product_User_Management' },
+    { name: 'Q8: Team Directory', port: 5008, folder: 'Q8_Team_Member_Directory' },
+    { name: 'Q9: Patient Management', port: 5009, folder: 'Q9_Patient_Management' }
+  ];
+
+  entries.forEach(e => {
+    const sPath = path.join(__dirname, '..', e.folder, 'backend', 'server.js');
+    const child = cp.spawn(process.execPath, [sPath], { cwd: path.dirname(sPath), stdio: 'ignore' });
+    children.push(child);
+    console.log(`✅ [Port ${e.port}] ${e.name.padEnd(25)} -> http://localhost:${e.port}`);
+  });
+
+  console.log('\n🌐 All 10 apps are live! Open any port in your browser.');
+  console.log('🛑 Press Ctrl+C in this terminal anytime to stop all servers.\n');
+
+  process.on('SIGINT', () => {
+    children.forEach(c => c.kill());
+    process.exit(0);
+  });
+  return;
+}
 
 const MAP = {
   template: { folder: 'TEMPLATE_EXAM_STARTER', port: 5000, name: 'Universal Starter Template' },
