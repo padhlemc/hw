@@ -15,10 +15,8 @@
     "Q9_Patient_Management",
     "TEMPLATE_EXAM_STARTER",
     "README.md",
-    "RUN_GUIDE.md",
     "UNIVERSAL_EXAM_TEMPLATE.md",
-    "verify_all.js",
-    "OST_Mock_Test_Solutions.zip"
+    "verify_all.js"
   ],
   "scripts": {
     "start": "node verify_all.js",

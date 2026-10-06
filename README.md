@@ -96,6 +96,6 @@ If MongoDB is not installed or running as a service on the lab computer:
 
 ---
 
-## 📖 Additional Documentation
+## 📖 Master Exam Tutorial
 - [**UNIVERSAL_EXAM_TEMPLATE.md**](UNIVERSAL_EXAM_TEMPLATE.md) - The master tutorial & 15-minute exam cheatsheet.
-- [**RUN_GUIDE.md**](RUN_GUIDE.md) - Detailed step-by-step execution guide and dual-terminal instructions.
+
