@@ -44,9 +44,138 @@ When you get an exam question, you copy the starter template and modify **ONLY 4
 | Area | File | What You Change | Example: Patient Management | Example: Expense Tracker |
 |---|---|---|---|---|
 | **1. Port & Name** | `backend/server.js` | Change `PORT` and `COLLECTION_NAME` | `PORT = 5009`<br>`COLLECTION = 'patients'` | `PORT = 5003`<br>`COLLECTION = 'expenses'` |
-| **2. Initial Schema** | `backend/server.js` | Change fields in initial `memoryData` | `{ name, age, condition, status }` | `{ title, amount, category, date }` |
-| **3. Form Inputs** | `frontend/app.jsx` | Change `initialForm` & input tags | Name, Age, Medical Condition inputs | Title, Amount, Category inputs |
-| **4. Table Display** | `frontend/app.jsx` | Change `<th>` headers and `<td>` values | Name, Age, Condition, Status | Title, Amount, Category, Date |
+| **2. Initial Schema** | `backend/server.js` | Change fields in initial `items` | `{ name, age, condition }` | `{ title, amount, category }` |
+| **3. Form Inputs** | `frontend/app.jsx` | Change `form` state & inputs | Name, Age, Condition inputs | Title, Amount, Category inputs |
+| **4. Table Display** | `frontend/app.jsx` | Change `<th>` headers and `<td>` values | Name, Age, Condition | Title, Amount, Category |
+
+---
+
+## ⚡ ULTRA-SHORT EXAM CHEAT-SHEET (Under 75 Lines Total!)
+> **If you have to type the code from memory during the exam, USE THIS EXACT SHORT VERSION:**
+
+### 1. `backend/server.js` (35 Lines):
+```javascript
+const express = require('express');
+const { MongoClient } = require('mongodb');
+const path = require('path');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+let items = [{ id: 1, name: 'Sample Item', category: 'General' }], col;
+new MongoClient('mongodb://127.0.0.1:27017', { serverSelectionTimeoutMS: 2000 }).connect()
+  .then(c => { col = c.db('exam_db').collection('items'); console.log('Mongo connected'); })
+  .catch(() => console.log('Mongo offline, memory fallback active'));
+
+app.get('/api/items', async (req, res) => {
+  res.json(col ? (await col.find().toArray()).map(d => ({ ...d, id: d._id })) : items);
+});
+
+app.post('/api/items', async (req, res) => {
+  const item = { id: Date.now(), ...req.body };
+  if (col) await col.insertOne({ ...item, _id: item.id });
+  else items.push(item);
+  res.status(201).json(item);
+});
+
+app.delete('/api/items/:id', async (req, res) => {
+  if (col) await col.deleteOne({ _id: req.params.id });
+  items = items.filter(i => String(i.id) !== String(req.params.id));
+  res.json({ success: true });
+});
+
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../frontend/index.html')));
+app.listen(PORT, () => console.log(`Running: http://localhost:${PORT}`));
+```
+
+### 2. `frontend/app.jsx` (40 Lines):
+```jsx
+const { useState, useEffect } = React;
+
+function App() {
+  const [items, setItems] = useState([]);
+  const [form, setForm] = useState({ name: '', category: 'General' });
+
+  const load = () => fetch('/api/items').then(r => r.json()).then(setItems);
+  useEffect(() => { load(); }, []);
+
+  const add = async (e) => {
+    e.preventDefault();
+    await fetch('/api/items', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form)
+    });
+    setForm({ name: '', category: 'General' });
+    load();
+  };
+
+  const del = async (id) => {
+    await fetch(`/api/items/${id}`, { method: 'DELETE' });
+    load();
+  };
+
+  return (
+    <div>
+      <h2>Exam Manager</h2>
+      <form onSubmit={add}>
+        <input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Name" required />
+        <input value={form.category} onChange={e => setForm({ ...form, category: e.target.value })} placeholder="Category" />
+        <button type="submit">Add</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Category</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          {items.map(i => (
+            <tr key={i.id}>
+              <td>{i.name || i.title}</td>
+              <td>{i.category || '-'}</td>
+              <td><button className="del-btn" onClick={() => del(i.id)}>Delete</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+```
+
+### 3. `frontend/index.html` (14 Lines):
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
+```
+
+### 4. `frontend/style.css` (7 Lines):
+```css
+body { font-family: Arial, sans-serif; max-width: 650px; margin: 30px auto; padding: 10px; }
+input, button { padding: 8px; margin: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+th { background: #f2f2f2; }
+.del-btn { color: red; cursor: pointer; border: none; background: none; font-weight: bold; }
+```
+
+---
 
 ---
 
