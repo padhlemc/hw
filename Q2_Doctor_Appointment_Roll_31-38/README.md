@@ -82,7 +82,22 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5002/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/doctors` | List all available doctors and status | N/A |
+| `GET` | `/api/appointments` | List all booked appointments | N/A |
+| `POST` | `/api/appointments` | Book new doctor appointment | `{"patientName":"Rahul","doctorId":"doc1","doctorName":"Dr. Mehta","date":"2026-10-15","time":"10:00 AM","reason":"General Checkup"}` |
+| `PUT` | `/api/appointments/:id` | Reschedule or update appointment | `{"status":"Confirmed","date":"2026-10-16"}` |
+| `DELETE` | `/api/appointments/:id` | Cancel appointment | N/A |
+
+### Quick Test via cURL:
+```bash
+# Fetch doctors
+curl http://localhost:5002/api/doctors
+
+# Fetch appointments
+curl http://localhost:5002/api/appointments
+```
+

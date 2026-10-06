@@ -82,7 +82,23 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5009/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/patients` | List all patient health records | N/A |
+| `POST` | `/api/patients` | Admit new patient | `{"name":"Rohan Verma","age":29,"gender":"Male","medicalCondition":"Acute Appendicitis","contact":"9876123450","roomNumber":"Room 302","status":"Admitted"}` |
+| `PUT` | `/api/patients/:id` | Update patient treatment or status | `{"status":"Discharged","roomNumber":"N/A"}` |
+| `DELETE` | `/api/patients/:id` | Remove patient record | N/A |
+
+### Quick Test via cURL:
+```bash
+# Fetch patient records
+curl http://localhost:5009/api/patients
+
+# Admit a new patient
+curl -X POST http://localhost:5009/api/patients \
+  -H "Content-Type: application/json" \
+  -d "{\"name\":\"Meera Nair\",\"age\":42,\"gender\":\"Female\",\"medicalCondition\":\"Asthma Management\",\"contact\":\"9811334455\",\"roomNumber\":\"Room 112\",\"status\":\"Under Treatment\"}"
+```
+

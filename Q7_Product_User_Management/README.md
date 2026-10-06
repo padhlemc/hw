@@ -82,7 +82,25 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5007/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/products` | List all inventory products | N/A |
+| `POST` | `/api/products` | Create product (Strict validation: price > 0, stock >= 0) | `{"name":"Mechanical Keyboard","category":"Electronics","price":2499,"stock":15}` |
+| `PUT` | `/api/products/:id` | Update product details | `{"price":2299,"stock":12}` |
+| `DELETE` | `/api/products/:id` | Delete product | N/A |
+| `GET` | `/api/users` | List all registered users | N/A |
+| `POST` | `/api/users` | Register user (Strict validation: email regex, 10-digit phone) | `{"name":"Aman Gupta","email":"aman@gmail.com","phone":"9876543210","role":"Customer"}` |
+| `PUT` | `/api/users/:id` | Update user | `{"phone":"9811223344"}` |
+| `DELETE` | `/api/users/:id` | Delete user | N/A |
+
+### Quick Test via cURL:
+```bash
+# Fetch products
+curl http://localhost:5007/api/products
+
+# Fetch users
+curl http://localhost:5007/api/users
+```
+

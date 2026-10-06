@@ -82,7 +82,23 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5008/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/members` | List team members (filters: `?department=...&search=...`) | N/A |
+| `POST` | `/api/members` | Add new team member | `{"name":"Siddharth Roy","role":"DevOps Lead","department":"Cloud & Infrastructure","email":"sid@team.io","location":"Bangalore","skills":["Docker","AWS","CI/CD"]}` |
+| `PUT` | `/api/members/:id` | Update team member profile | `{"role":"Principal DevOps Architect"}` |
+| `DELETE` | `/api/members/:id` | Remove team member | N/A |
+
+### Quick Test via cURL:
+```bash
+# Fetch team members
+curl http://localhost:5008/api/members
+
+# Add team member
+curl -X POST http://localhost:5008/api/members \
+  -H "Content-Type: application/json" \
+  -d "{\"name\":\"Deepak Sharma\",\"role\":\"UI Designer\",\"department\":\"Design\",\"email\":\"deepak@team.io\",\"skills\":[\"Figma\",\"CSS\"]}"
+```
+

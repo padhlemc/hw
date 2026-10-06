@@ -82,7 +82,23 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5003/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/expenses` | List all expenses (with category summaries) | N/A |
+| `POST` | `/api/expenses` | Add a new daily expense | `{"title":"Lunch","amount":250,"category":"Food","date":"2026-10-07","paymentMethod":"UPI"}` |
+| `PUT` | `/api/expenses/:id` | Update an existing expense | `{"title":"Dinner","amount":350,"category":"Food"}` |
+| `DELETE` | `/api/expenses/:id` | Delete an expense | N/A |
+
+### Quick Test via cURL:
+```bash
+# Fetch all expenses
+curl http://localhost:5003/api/expenses
+
+# Add a new expense
+curl -X POST http://localhost:5003/api/expenses \
+  -H "Content-Type: application/json" \
+  -d "{\"title\":\"Books\",\"amount\":450,\"category\":\"Education\",\"date\":\"2026-10-07\"}"
+```
+

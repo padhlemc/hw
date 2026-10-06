@@ -1,20 +1,9 @@
 {
   "name": "ost-ia2-solutions",
   "version": "1.0.0",
-  "description": "Complete mock test solutions (Q1-Q9) with Express + React 18 + MongoDB, provided in with_comments and without_comments variants",
-  "main": "bin/cli.js",
-  "bin": {
-    "ost-mock-test": "./bin/cli.js",
-    "ost-ia2": "./bin/cli.js"
-  },
+  "description": "Complete mock test solutions (Q1-Q9) with Express + React 18 + MongoDB Native Driver + Universal Exam Template",
+  "main": "verify_all.js",
   "files": [
-    "OST_Mock_Test_Solutions.zip",
-    "bin",
-    "RUN_GUIDE.md",
-    "README.md",
-    "OLLAMA_GUIDE.md",
-    "extract_code.py",
-    "query_ollama.js",
     "Q1_Book_Ecommerce_Roll_24-30",
     "Q2_Doctor_Appointment_Roll_31-38",
     "Q3_Expense_Tracker_Roll_39-45",
@@ -23,10 +12,19 @@
     "Q6_Teacher_Student_Dashboard_Roll_61-67",
     "Q7_Product_User_Management",
     "Q8_Team_Member_Directory",
-    "Q9_Patient_Management"
+    "Q9_Patient_Management",
+    "TEMPLATE_EXAM_STARTER",
+    "README.md",
+    "RUN_GUIDE.md",
+    "UNIVERSAL_EXAM_TEMPLATE.md",
+    "verify_all.js",
+    "OST_Mock_Test_Solutions.zip"
   ],
   "scripts": {
-    "start": "node bin/cli.js",
+    "start": "node verify_all.js",
+    "verify": "node verify_all.js",
+    "test": "node verify_all.js",
+    "template": "node TEMPLATE_EXAM_STARTER/backend/server.js",
     "q1": "node Q1_Book_Ecommerce_Roll_24-30/backend/server.js",
     "q2": "node Q2_Doctor_Appointment_Roll_31-38/backend/server.js",
     "q3": "node Q3_Expense_Tracker_Roll_39-45/backend/server.js",
@@ -35,8 +33,7 @@
     "q6": "node Q6_Teacher_Student_Dashboard_Roll_61-67/backend/server.js",
     "q7": "node Q7_Product_User_Management/backend/server.js",
     "q8": "node Q8_Team_Member_Directory/backend/server.js",
-    "q9": "node Q9_Patient_Management/backend/server.js",
-    "dev": "node bin/cli.js"
+    "q9": "node Q9_Patient_Management/backend/server.js"
   },
   "keywords": [
     "ost",
@@ -46,23 +43,21 @@
     "express",
     "react",
     "mongodb",
-    "ollama",
-    "qwen2.5-coder"
+    "mongoclient"
   ],
   "author": "Aryan Chaurasia <chaurasiaaryan1980@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chaurasia-aryan/ITC-IA2.git"
+    "url": "git+https://github.com/padhlemc/hw.git"
   },
   "bugs": {
-    "url": "https://github.com/chaurasia-aryan/ITC-IA2/issues"
+    "url": "https://github.com/padhlemc/hw/issues"
   },
-  "homepage": "https://github.com/chaurasia-aryan/ITC-IA2#readme",
+  "homepage": "https://github.com/padhlemc/hw#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "mongodb": "^6.20.0",
-    "mongoose": "^8.3.1"
+    "mongodb": "^6.20.0"
   }
 }

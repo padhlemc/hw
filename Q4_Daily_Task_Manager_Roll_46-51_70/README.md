@@ -82,7 +82,23 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5004/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/tasks` | List tasks (filters: `?priority=...&status=...`) | N/A |
+| `POST` | `/api/tasks` | Create a new task | `{"title":"Prepare IA2 PPT","description":"Slide deck on Docker","priority":"High","dueDate":"2026-10-10","status":"Pending"}` |
+| `PUT` | `/api/tasks/:id` | Update task or toggle status | `{"status":"Completed"}` |
+| `DELETE` | `/api/tasks/:id` | Delete task | N/A |
+
+### Quick Test via cURL:
+```bash
+# Fetch all tasks
+curl http://localhost:5004/api/tasks
+
+# Add a task
+curl -X POST http://localhost:5004/api/tasks \
+  -H "Content-Type: application/json" \
+  -d "{\"title\":\"Review React Router\",\"priority\":\"Medium\",\"status\":\"Pending\"}"
+```
+

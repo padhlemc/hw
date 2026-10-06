@@ -82,7 +82,23 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5006/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/students` | List all students with grades & stats | N/A |
+| `POST` | `/api/students` | Add a new student record | `{"rollNo":"24IT105","name":"Kavita Patel","department":"IT","marks":{"os":88,"dbms":92,"cn":85},"attendance":94}` |
+| `PUT` | `/api/students/:id` | Update student marks or attendance | `{"marks":{"os":90,"dbms":95,"cn":88}}` |
+| `DELETE` | `/api/students/:id` | Delete student record | N/A |
+
+### Quick Test via cURL:
+```bash
+# Fetch students list and calculated grades
+curl http://localhost:5006/api/students
+
+# Add a student record
+curl -X POST http://localhost:5006/api/students \
+  -H "Content-Type: application/json" \
+  -d "{\"rollNo\":\"24CS201\",\"name\":\"Vikram Singh\",\"department\":\"CSE\",\"marks\":{\"os\":85,\"dbms\":80,\"cn\":78},\"attendance\":90}"
+```
+

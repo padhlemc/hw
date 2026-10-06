@@ -1,86 +1,101 @@
-# Open Source Technologies (OST) / Web Programming Lab - Mock Test Solutions
+# Open Source Technologies (OST) / Web Programming Lab - Complete Solutions & Master Exam Suite
 
-Complete mock test solutions for all **9 Internal Assessment (IA-2) & Lab Exam Questions**.
-
-Each question is structured as a self-contained full-stack project with **cleanly separated `frontend/` and `backend/` directories**, using:
-- **Backend**: Node.js + Express with Native MongoDB Driver (`MongoClient`) and offline JSON fallback.
-- **Frontend**: React 18 (React Router in Q1, React Context in Q5, Props & Components in Q8).
+Production-grade, fully working solutions for all **9 Internal Assessment (IA-2) & Lab Exam Questions**, plus the **Universal Exam Template** that allows any student to solve ANY question in 10 minutes.
 
 ---
 
-## 📋 Question Directory & Roll Number Mapping
+## 🌟 The Universal Exam Template (Learn 1 Template, Solve Any Question!)
 
-| Folder | Roll Numbers / Topic | Port | Database | Frontend Features |
-|---|---|---|---|---|
-| [**Q1_Book_Ecommerce_Roll_24-30**](file:///c:/Users/Aryan/Downloads/hw/Q1_Book_Ecommerce_Roll_24-30/README.md) | **Rolls 24 to 30**: Book E-Commerce Store | `5001` | `book_ecommerce` | React Router DOM v6, Cart, Orders, Admin panel |
-| [**Q2_Doctor_Appointment_Roll_31-38**](file:///c:/Users/Aryan/Downloads/hw/Q2_Doctor_Appointment_Roll_31-38/README.md) | **Rolls 31 to 38**: Doctor Appointment Booking | `5002` | `doctor_appointments` | Patient booking, reschedule, cancel, Doctor schedule |
-| [**Q3_Expense_Tracker_Roll_39-45**](file:///c:/Users/Aryan/Downloads/hw/Q3_Expense_Tracker_Roll_39-45/README.md) | **Rolls 39 to 45**: Daily Expense Tracker & Reports | `5003` | `expense_tracker` | Expense CRUD, Category breakdown progress bars |
-| [**Q4_Daily_Task_Manager_Roll_46-51_70**](file:///c:/Users/Aryan/Downloads/hw/Q4_Daily_Task_Manager_Roll_46-51_70/README.md) | **Rolls 46-51, 70**: Daily Task Manager | `5004` | `task_manager` | Task CRUD, status toggling, priority filters |
-| [**Q5_Discussion_Forum_Roll_52-59**](file:///c:/Users/Aryan/Downloads/hw/Q5_Discussion_Forum_Roll_52-59/README.md) | **Rolls 52 to 59**: Discussion Forum Threads | `5005` | `discussion_forum` | React Context API (`ForumContext`), Upvoting, Replies |
-| [**Q6_Teacher_Student_Dashboard_Roll_61-67**](file:///c:/Users/Aryan/Downloads/hw/Q6_Teacher_Student_Dashboard_Roll_61-67/README.md) | **Rolls 61 to 67**: Teacher-Student Gradebook | `5006` | `gradebook_db` | Grade calculations, Class stats, Printable Report Card |
-| [**Q7_Product_User_Management**](file:///c:/Users/Aryan/Downloads/hw/Q7_Product_User_Management/README.md) | **Product & User Management**: Dual-tab CRUD | `5007` | `product_user_db` | Strict Regex validation (email, phone, price > 0) |
-| [**Q8_Team_Member_Directory**](file:///c:/Users/Aryan/Downloads/hw/Q8_Team_Member_Directory/README.md) | **Team Member Directory**: Reusable Components | `5008` | `team_directory_db` | Props passing (`<Navbar />`, `<TeamCard />`), Vite support |
-| [**Q9_Patient_Management**](file:///c:/Users/Aryan/Downloads/hw/Q9_Patient_Management/README.md) | **Patient Management**: Health Record CRUD | `5009` | `patient_management_db` | Patient admission, diagnosis, status management |
+Before checking individual questions, read [**UNIVERSAL_EXAM_TEMPLATE.md**](UNIVERSAL_EXAM_TEMPLATE.md) and inspect [**TEMPLATE_EXAM_STARTER/**](TEMPLATE_EXAM_STARTER):
+- **Core Insight**: Every lab exam question is 95% identical (Express REST API + React 18 CDN + MongoDB/JSON fallback).
+- **The "Change Only 4 Things" Rule**: You only change: (1) Port & Collection Name, (2) Schema fields, (3) Form Inputs, and (4) Table Display columns!
+- **Zero Lab Crashes**: Built-in automatic fallback to local JSON storage if MongoDB is not running on the college computer.
+- **Zero Build Setup**: Frontend uses React 18 & Babel via CDN, so it runs directly in any browser without Webpack/Vite install failures.
 
 ---
 
-## ⚡ Quick 2-Step Run Guide
+## 📋 Master Question Directory & Roll Number Mapping
+
+| Question | Roll Numbers / Topic | Port | Database | Frontend & Concepts Tested | Quick Command |
+|---|---|---|---|---|---|
+| [**TEMPLATE_EXAM_STARTER**](TEMPLATE_EXAM_STARTER/README.md) | **Universal Master Boilerplate** | `5000` | `exam_starter_db` | Master CRUD Template (Add, Edit, Delete, Filter) | `npm run template` |
+| [**Q1_Book_Ecommerce_Roll_24-30**](Q1_Book_Ecommerce_Roll_24-30/README.md) | **Rolls 24 to 30**: Book E-Commerce Store | `5001` | `book_ecommerce` | React Router DOM v6, Cart, Orders, Admin panel | `npm run q1` |
+| [**Q2_Doctor_Appointment_Roll_31-38**](Q2_Doctor_Appointment_Roll_31-38/README.md) | **Rolls 31 to 38**: Doctor Appointment Booking | `5002` | `doctor_appointments` | Patient booking, reschedule, cancel, Doctor schedule | `npm run q2` |
+| [**Q3_Expense_Tracker_Roll_39-45**](Q3_Expense_Tracker_Roll_39-45/README.md) | **Rolls 39 to 45**: Daily Expense Tracker & Reports | `5003` | `expense_tracker` | Expense CRUD, Category breakdown progress bars | `npm run q3` |
+| [**Q4_Daily_Task_Manager_Roll_46-51_70**](Q4_Daily_Task_Manager_Roll_46-51_70/README.md) | **Rolls 46-51, 70**: Daily Task Manager | `5004` | `task_manager` | Task CRUD, status toggling, priority filters | `npm run q4` |
+| [**Q5_Discussion_Forum_Roll_52-59**](Q5_Discussion_Forum_Roll_52-59/README.md) | **Rolls 52 to 59**: Discussion Forum Threads | `5005` | `discussion_forum` | React Context API (`ForumContext`), Upvoting, Replies | `npm run q5` |
+| [**Q6_Teacher_Student_Dashboard_Roll_61-67**](Q6_Teacher_Student_Dashboard_Roll_61-67/README.md) | **Rolls 61 to 67**: Teacher-Student Gradebook | `5006` | `gradebook_db` | Grade calculations, Class stats, Printable Report Card | `npm run q6` |
+| [**Q7_Product_User_Management**](Q7_Product_User_Management/README.md) | **Product & User Management**: Dual-tab CRUD | `5007` | `product_user_db` | Strict Regex validation (email, phone, price > 0) | `npm run q7` |
+| [**Q8_Team_Member_Directory**](Q8_Team_Member_Directory/README.md) | **Team Member Directory**: Reusable Components | `5008` | `team_directory_db` | Props passing (`<Navbar />`, `<TeamCard />`), Vite support | `npm run q8` |
+| [**Q9_Patient_Management**](Q9_Patient_Management/README.md) | **Patient Management**: Health Record CRUD | `5009` | `patient_management_db` | Patient admission, diagnosis, status management | `npm run q9` |
+
+---
+
+## ⚡ Quick 1-Command Execution
+
+You can run any question directly from the root repository:
 
 ```bash
-# 1. Navigate to question folder
-cd Q1_Book_Ecommerce_Roll_24-30
+# Run Question 1
+npm run q1
 
-# 2. Run in 1 command
-npm start
-# (or: npm run dev)
+# Run Question 9
+npm run q9
+
+# Run the Universal Template
+npm run template
+
+# Verify all questions in 1 command
+npm run verify
 ```
 
-Open: **`http://localhost:5001`**
+Or navigate to any folder:
+```bash
+cd Q1_Book_Ecommerce_Roll_24-30
+npm start
+```
+Then open: **`http://localhost:5001`** (or the respective port).
 
 ---
 
-## 📁 Architecture Inside Each Question Folder
+## 📁 Standardized Folder Architecture
+
+Every single question strictly adheres to the same clean full-stack architecture:
 
 ```
 Q1_Book_Ecommerce_Roll_24-30/
 ├── backend/
-│   ├── server.js              # Express REST API + Native MongoClient
+│   ├── server.js              # Express REST API + Native MongoClient + JSON fallback
 │   ├── package.json           # Backend dependencies (express, cors, mongodb)
-│   └── data_fallback.json     # Offline data store
+│   └── data_fallback.json     # Automatic offline data store
 ├── frontend/
-│   ├── index.html             # HTML entry point
-│   ├── app.jsx                # React 18 component hierarchy & logic
-│   ├── style.css              # Responsive modern CSS
-│   └── package.json           # Frontend package scripts
+│   ├── index.html             # HTML entry point (React 18 + Babel CDN)
+│   ├── app.jsx                # React 18 components, hooks & state
+│   ├── style.css              # Modern responsive CSS
+│   └── package.json           # Frontend scripts
 ├── package.json               # Root scripts to run both in 1 command
-└── README.md                  # Detailed step-by-step instructions
+└── README.md                  # Detailed question-specific instructions & curl tests
 ```
 
 ---
 
-## 🌐 Running Frontend & Backend Separately
+## 🗄️ MongoDB Native Driver + Automatic Offline Fallback
 
-- **Backend**:
-  ```bash
-  cd backend
-  npm install
-  npm start
-  ```
-- **Frontend**:
-  Open `frontend/index.html` in your browser, or:
-  ```bash
-  cd frontend
-  npx serve . -p 3000
-  ```
+All backends use the official native MongoDB driver (`MongoClient`) matching university requirements:
+```javascript
+const { MongoClient, ObjectId } = require('mongodb');
+const client = new MongoClient('mongodb://127.0.0.1:27017', { serverSelectionTimeoutMS: 2000 });
+await client.connect();
+```
+
+### 🛡️ Why You Will Never Crash in the Exam:
+If MongoDB is not installed or running as a service on the lab computer:
+- The server **does not crash**.
+- It logs: `[MongoClient] MongoDB offline. Seamless JSON fallback active.`
+- All operations (Create, Read, Update, Delete) are saved to `backend/data_fallback.json`.
 
 ---
 
-## 📦 Accessing via NPM Pack
-
-```bash
-npm pack github:chaurasia-aryan/ITC-IA2
-tar -xzf ost-ia2-solutions-1.0.0.tgz
-cd package
-```
-
-For complete instructions, refer to [**RUN_GUIDE.md**](file:///c:/Users/Aryan/Downloads/hw/RUN_GUIDE.md).
+## 📖 Additional Documentation
+- [**UNIVERSAL_EXAM_TEMPLATE.md**](UNIVERSAL_EXAM_TEMPLATE.md) - The master tutorial & 15-minute exam cheatsheet.
+- [**RUN_GUIDE.md**](RUN_GUIDE.md) - Detailed step-by-step execution guide and dual-terminal instructions.

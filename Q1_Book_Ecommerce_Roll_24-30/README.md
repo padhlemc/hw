@@ -82,7 +82,23 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5001/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/books` | Get all books (filters: `?category=...&search=...`) | N/A |
+| `POST` | `/api/books` | Add new book to inventory | `{"title":"Refactoring","author":"Martin Fowler","price":650,"category":"Programming","stock":10}` |
+| `DELETE` | `/api/books/:id` | Remove a book by ID | N/A |
+| `POST` | `/api/orders` | Place a customer order | `{"customerName":"Aryan","email":"a@test.com","items":[],"totalAmount":650}` |
+
+### Quick Test via cURL:
+```bash
+# Fetch all books
+curl http://localhost:5001/api/books
+
+# Add a new book
+curl -X POST http://localhost:5001/api/books \
+  -H "Content-Type: application/json" \
+  -d "{\"title\":\"Clean Architecture\",\"author\":\"Robert C. Martin\",\"price\":699,\"category\":\"Programming\"}"
+```
+

@@ -82,7 +82,23 @@ npm start
 
 ---
 
-## 🔌 API Endpoints
-All API routes are served under `/api`:
-- Accessible locally at: `http://localhost:5005/api/...`
-- Test with curl or browser to verify backend responses.
+## 🔌 API Endpoints Reference
+
+| Method | Endpoint | Description | Sample Payload |
+|---|---|---|---|
+| `GET` | `/api/posts` | List all discussion threads | N/A |
+| `POST` | `/api/posts` | Create a new discussion thread | `{"title":"MERN vs Next.js","content":"Which is better for college labs?","category":"WebDev","author":{"name":"Aryan","username":"aryan_c"}}` |
+| `PUT` | `/api/posts/:id/upvote` | Increment thread upvotes | N/A |
+| `DELETE` | `/api/posts/:id` | Delete discussion thread | N/A |
+| `GET` | `/api/posts/:id/comments`| List comments on a thread | N/A |
+| `POST` | `/api/posts/:id/comments`| Post a comment on a thread | `{"content":"Native Mongo is easiest!","author":{"name":"Priya"}}` |
+
+### Quick Test via cURL:
+```bash
+# Fetch discussion threads
+curl http://localhost:5005/api/posts
+
+# Upvote a thread
+curl -X PUT http://localhost:5005/api/posts/p1/upvote
+```
+
