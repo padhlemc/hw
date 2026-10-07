@@ -89,7 +89,7 @@ function TeacherPortal({ students, stats, onStudentSaved, onStudentDeleted, onSe
         showToast(`Record updated for ${updated.name}!`);
         setEditingStudent(null);
       } else {
-        const res = await fetch(`${API_BASE}/api/students', {
+        const res = await fetch(`${API_BASE}/api/students`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -573,8 +573,8 @@ function App() {
   const fetchInitialData = async () => {
     try {
       const [stuRes, statsRes] = await Promise.all([
-        fetch(`${API_BASE}/api/students'),
-        fetch(`${API_BASE}/api/students/stats')
+        fetch(`${API_BASE}/api/students`),
+        fetch(`${API_BASE}/api/students/stats`)
       ]);
       const stuData = await stuRes.json();
       const statsData = await statsRes.json();
@@ -599,7 +599,7 @@ function App() {
       setStudents((prev) => [student, ...prev]);
     }
     // Refresh stats
-    fetch(`${API_BASE}/api/students/stats')
+    fetch(`${API_BASE}/api/students/stats`)
       .then((r) => r.json())
       .then(setStats)
       .catch(console.error);
@@ -607,7 +607,7 @@ function App() {
 
   const handleStudentDeleted = (id) => {
     setStudents((prev) => prev.filter((s) => (s.id || s._id) !== id));
-    fetch(`${API_BASE}/api/students/stats')
+    fetch(`${API_BASE}/api/students/stats`)
       .then((r) => r.json())
       .then(setStats)
       .catch(console.error);

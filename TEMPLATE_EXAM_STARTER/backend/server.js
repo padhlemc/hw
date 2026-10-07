@@ -16,7 +16,8 @@ const COLLECTION_NAME = 'items'; // e.g. 'books', 'patients', 'tasks', 'expenses
 // Middleware
 app.use(cors());
 app.use(express.json());
-const FRONTEND_DIR = path.join(__dirname, '..', 'frontend');
+const FRONTEND_DIST = path.join(__dirname, '..', 'frontend', 'dist');
+const FRONTEND_DIR = fs.existsSync(FRONTEND_DIST) ? FRONTEND_DIST : path.join(__dirname, '..', 'frontend');
 app.use(express.static(FRONTEND_DIR));
 
 // ============================================================================
@@ -178,7 +179,10 @@ app.get('*', (req, res) => {
   if (req.path.startsWith('/api')) {
     return res.status(404).json({ error: 'Endpoint not found' });
   }
-  res.sendFile(path.join(FRONTEND_DIR, 'index.html'));
+  const indexPath = fs.existsSync(path.join(FRONTEND_DIST, 'index.html'))
+    ? path.join(FRONTEND_DIST, 'index.html')
+    : path.join(FRONTEND_DIR, 'index.html');
+  res.sendFile(indexPath);
 });
 
 // ============================================================================

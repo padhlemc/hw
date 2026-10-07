@@ -59,7 +59,7 @@ function ForumProvider({ children }) {
   // Create new thread/post
   const addPost = async (title, content, category) => {
     try {
-      const res = await fetch(`${API_BASE}/api/posts', {
+      const res = await fetch(`${API_BASE}/api/posts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

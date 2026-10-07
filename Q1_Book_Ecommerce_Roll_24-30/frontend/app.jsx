@@ -212,7 +212,7 @@ function CartView({ cart, onUpdateQuantity, onRemoveFromCart, onClearCart, showT
 
     setIsSubmitting(true);
     try {
-      const res = await fetch(`${API_BASE}/api/orders', {
+      const res = await fetch(`${API_BASE}/api/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -350,7 +350,7 @@ function AdminView({ books, onBookAdded, onBookDeleted, showToast }) {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const res = await fetch(`${API_BASE}/api/books', {
+      const res = await fetch(`${API_BASE}/api/books`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -548,7 +548,7 @@ function App() {
 
   const fetchBooks = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/books');
+      const res = await fetch(`${API_BASE}/api/books`);
       const data = await res.json();
       setBooks(data);
     } catch (err) {

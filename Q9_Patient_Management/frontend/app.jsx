@@ -57,7 +57,7 @@ function App() {
 
   const fetchPatients = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/patients');
+      const res = await fetch(`${API_BASE}/api/patients`);
       const data = await res.json();
       setPatients(data);
     } catch (err) {
@@ -121,7 +121,7 @@ function App() {
         showToast(`Patient record for "${updated.name}" updated!`);
         setEditingPatient(null);
       } else {
-        const res = await fetch(`${API_BASE}/api/patients', {
+        const res = await fetch(`${API_BASE}/api/patients`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)

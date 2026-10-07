@@ -139,7 +139,7 @@ function App() {
 
   // Fetch team members from Express API backend
   useEffect(() => {
-    fetch(`${API_BASE}/api/members')
+    fetch(`${API_BASE}/api/members`)
       .then((res) => res.json())
       .then((data) => setMembers(data))
       .catch((err) => console.error('Error fetching members:', err));

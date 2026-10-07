@@ -108,7 +108,7 @@ function App() {
 
   const fetchExpenses = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/expenses');
+      const res = await fetch(`${API_BASE}/api/expenses`);
       const data = await res.json();
       setExpenses(data);
     } catch (err) {
@@ -182,7 +182,7 @@ function App() {
         setEditingExpense(null);
       } else {
         // POST create
-        const res = await fetch(`${API_BASE}/api/expenses', {
+        const res = await fetch(`${API_BASE}/api/expenses`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ...formData, amount: Number(formData.amount) })

@@ -92,7 +92,7 @@ function BookView({ doctors, onBookingCreated, showToast }) {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch(`${API_BASE}/api/appointments', {
+      const res = await fetch(`${API_BASE}/api/appointments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -501,8 +501,8 @@ function App() {
   const fetchInitialData = async () => {
     try {
       const [docsRes, apptsRes] = await Promise.all([
-        fetch(`${API_BASE}/api/doctors'),
-        fetch(`${API_BASE}/api/appointments')
+        fetch(`${API_BASE}/api/doctors`),
+        fetch(`${API_BASE}/api/appointments`)
       ]);
       const docsData = await docsRes.json();
       const apptsData = await apptsRes.json();

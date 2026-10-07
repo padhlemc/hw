@@ -7,10 +7,10 @@ Production-grade, fully working solutions for all **9 Internal Assessment (IA-2)
 ## 🌟 The Universal Exam Template (Learn 1 Template, Solve Any Question!)
 
 Before checking individual questions, read [**UNIVERSAL_EXAM_TEMPLATE.md**](UNIVERSAL_EXAM_TEMPLATE.md) and inspect [**TEMPLATE_EXAM_STARTER/**](TEMPLATE_EXAM_STARTER):
-- **Core Insight**: Every lab exam question is 95% identical (Express REST API + React 18 CDN + MongoDB/JSON fallback).
+- **Core Insight**: Every lab exam question is 95% identical (Express REST API + React 18 Vite + MongoDB Native Driver).
 - **The "Change Only 4 Things" Rule**: You only change: (1) Port & Collection Name, (2) Schema fields, (3) Form Inputs, and (4) Table Display columns!
 - **Zero Lab Crashes**: Built-in automatic fallback to local JSON storage if MongoDB is not running on the college computer.
-- **Zero Build Setup**: Frontend uses React 18 & Babel via CDN, so it runs directly in any browser without Webpack/Vite install failures.
+- **Vite React Architecture (No Babel)**: Pure React 18 + Vite with ES modules, zero Babel CDN runtime lag, pre-built production bundles, and offline resilience!
 
 ---
 
@@ -45,16 +45,24 @@ npm run q9
 # Run the Universal Template
 npm run template
 
+# Build all 10 Vite frontends in 1 command
+npm run build
+
 # Verify all questions in 1 command
 npm run verify
 ```
 
 Or navigate to any folder:
 ```bash
+# 1. Start the backend & serve the React app
 cd Q1_Book_Ecommerce_Roll_24-30
 npm start
+
+# 2. Or start the Vite development server with hot-reload
+cd frontend
+npm run dev
 ```
-Then open: **`http://localhost:5001`** (or the respective port).
+Then open: **`http://localhost:5001`** (or `http://localhost:3000` for Vite dev).
 
 ---
 
@@ -69,12 +77,16 @@ Q1_Book_Ecommerce_Roll_24-30/
 │   ├── package.json           # Backend dependencies (express, cors, mongodb)
 │   └── data_fallback.json     # Automatic offline data store
 ├── frontend/
-│   ├── index.html             # HTML entry point (React 18 + Babel CDN)
-│   ├── app.jsx                # React 18 components, hooks & state
-│   ├── style.css              # Modern responsive CSS
-│   └── package.json           # Frontend scripts
+│   ├── src/
+│   │   ├── App.jsx            # React 18 component, hooks & state
+│   │   ├── main.jsx           # React DOM root mounting
+│   │   └── style.css          # Modern responsive CSS
+│   ├── index.html             # Vite entry point (No Babel, No CDN)
+│   ├── vite.config.js         # Vite config with backend proxy
+│   └── package.json           # Frontend Vite scripts (dev, build, preview)
 ├── package.json               # Root scripts to run both in 1 command
 └── README.md                  # Detailed question-specific instructions & curl tests
+```
 ```
 
 ---

@@ -104,7 +104,7 @@ function ProductsTab({ products, onProductSaved, onProductDeleted, showToast }) 
         showToast(`Product "${updated.name}" updated!`);
         setEditingProduct(null);
       } else {
-        const res = await fetch(`${API_BASE}/api/products', {
+        const res = await fetch(`${API_BASE}/api/products`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -390,7 +390,7 @@ function UsersTab({ users, onUserSaved, onUserDeleted, showToast }) {
         showToast(`User profile for "${updated.name}" updated!`);
         setEditingUser(null);
       } else {
-        const res = await fetch(`${API_BASE}/api/users', {
+        const res = await fetch(`${API_BASE}/api/users`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -615,8 +615,8 @@ function App() {
   const fetchInitialData = async () => {
     try {
       const [pRes, uRes] = await Promise.all([
-        fetch(`${API_BASE}/api/products'),
-        fetch(`${API_BASE}/api/users')
+        fetch(`${API_BASE}/api/products`),
+        fetch(`${API_BASE}/api/users`)
       ]);
       const pData = await pRes.json();
       const uData = await uRes.json();

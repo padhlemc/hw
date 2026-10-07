@@ -54,7 +54,7 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/tasks');
+      const res = await fetch(`${API_BASE}/api/tasks`);
       const data = await res.json();
       setTasks(data);
     } catch (err) {
@@ -109,7 +109,7 @@ function App() {
         setEditingTask(null);
       } else {
         // POST create
-        const res = await fetch(`${API_BASE}/api/tasks', {
+        const res = await fetch(`${API_BASE}/api/tasks`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
