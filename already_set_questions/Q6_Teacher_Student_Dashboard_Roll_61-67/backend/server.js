@@ -49,7 +49,7 @@ function calculatePerformance(marks, attendance) {
 
 const DATA_FILE = path.join(__dirname, 'data_fallback.json');
 let memoryStudents = [
-  { id: 's1', name: 'Aryan Chaurasia', rollNo: '21CS061', email: 'aryan@college.edu', branch: 'Computer Engineering', attendance: 92, ...calculatePerformance({ webTech: 94, databaseSystems: 88, computerNetworks: 90, dataStructures: 92 }, 92) },
+  { id: 's1', name: 'Aditya Verma', rollNo: '21CS061', email: 'aditya@college.edu', branch: 'Computer Engineering', attendance: 92, ...calculatePerformance({ webTech: 94, databaseSystems: 88, computerNetworks: 90, dataStructures: 92 }, 92) },
   { id: 's2', name: 'Priya Sharma', rollNo: '21CS062', email: 'priya@college.edu', branch: 'Computer Engineering', attendance: 86, ...calculatePerformance({ webTech: 82, databaseSystems: 78, computerNetworks: 85, dataStructures: 80 }, 86) },
   { id: 's3', name: 'Rohan Deshmukh', rollNo: '21CS063', email: 'rohan@college.edu', branch: 'Computer Engineering', attendance: 68, ...calculatePerformance({ webTech: 35, databaseSystems: 55, computerNetworks: 48, dataStructures: 50 }, 68) }
 ];

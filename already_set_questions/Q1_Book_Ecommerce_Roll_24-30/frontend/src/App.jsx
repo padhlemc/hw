@@ -307,7 +307,7 @@ function CartView({ cart, onUpdateQuantity, onRemoveFromCart, onClearCart, showT
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Aryan Sharma"
+                  placeholder="e.g. Rahul Sharma"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
                 />

@@ -204,7 +204,7 @@ function BookView({ doctors, onBookingCreated, showToast }) {
               <input
                 type="text"
                 required
-                placeholder="e.g. Aryan Sharma"
+                placeholder="e.g. Rahul Sharma"
                 value={patientName}
                 onChange={(e) => setPatientName(e.target.value)}
               />

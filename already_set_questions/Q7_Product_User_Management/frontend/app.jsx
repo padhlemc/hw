@@ -479,7 +479,7 @@ function UsersTab({ users, onUserSaved, onUserDeleted, showToast }) {
               <input
                 type="text"
                 required
-                placeholder="e.g. Aryan Chaurasia"
+                placeholder="e.g. Arjun Mehta"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
@@ -490,7 +490,7 @@ function UsersTab({ users, onUserSaved, onUserDeleted, showToast }) {
               <input
                 type="email"
                 required
-                placeholder="e.g. aryan@company.com"
+                placeholder="e.g. arjun@company.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />

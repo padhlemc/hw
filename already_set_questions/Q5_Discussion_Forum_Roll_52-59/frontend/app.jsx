@@ -11,7 +11,7 @@ const ForumContext = createContext();
 
 // Pre-defined test users for demonstrating Content Ownership
 const DEMO_USERS = [
-  { username: 'aryan_c', name: 'Aryan Chaurasia', avatar: '👨‍💻' },
+  { username: 'aditya_v', name: 'Aditya Verma', avatar: '👨‍💻' },
   { username: 'priya_m', name: 'Priya Mukherjee', avatar: '👩‍🔬' },
   { username: 'rahul_s', name: 'Rahul Sharma', avatar: '🧑‍💻' },
   { username: 'neha_k', name: 'Neha Kulkarni', avatar: '👩‍💼' }

@@ -202,7 +202,7 @@ function TeacherPortal({ students, stats, onStudentSaved, onStudentDeleted, onSe
               <input
                 type="text"
                 required
-                placeholder="e.g. Aryan Sharma"
+                placeholder="e.g. Aditya Verma"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />

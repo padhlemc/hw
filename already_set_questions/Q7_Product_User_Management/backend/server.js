@@ -25,7 +25,7 @@ let memoryData = {
     { id: 'p2', name: 'Mechanical Keyboard (Hot-swap)', price: 4299, stock: 35, category: 'Computers', description: 'Gateron Yellow linear switches, RGB backlit' }
   ],
   users: [
-    { id: 'u1', name: 'Aryan Chaurasia', email: 'aryan@example.com', phone: '9876543210', role: 'Admin' },
+    { id: 'u1', name: 'Arjun Mehta', email: 'arjun@example.com', phone: '9876543210', role: 'Admin' },
     { id: 'u2', name: 'Sneha Patel', email: 'sneha.p@company.in', phone: '9123456780', role: 'Manager' }
   ]
 };

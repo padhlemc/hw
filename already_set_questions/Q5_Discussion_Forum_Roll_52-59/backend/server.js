@@ -26,7 +26,7 @@ let memoryData = {
       title: 'How does React 18 Concurrent Rendering improve INP metrics?',
       content: 'Concurrent React brings startTransition and useDeferredValue. Has anyone measured realistic latency drops on complex form rendering?',
       category: 'React',
-      author: { username: 'aryan_c', name: 'Aryan Chaurasia', avatar: '👨‍💻' },
+      author: { username: 'aditya_v', name: 'Aditya Verma', avatar: '👨‍💻' },
       upvotes: 8,
       commentsCount: 2,
       createdAt: '2026-10-04T10:00:00Z'
